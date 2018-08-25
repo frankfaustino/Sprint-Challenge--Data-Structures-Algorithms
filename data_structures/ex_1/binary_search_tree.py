@@ -1,6 +1,4 @@
-from stack import Stack
 from queue import Queue
-
 
 class BinarySearchTree:
   def __init__(self, value):
