@@ -8,9 +8,12 @@ class BinarySearchTree:
     self.left = None
     self.right = None
 
-    
   def depth_first_for_each(self, cb):
-    container = Stack()
+    if self is None:
+      return
+    stack = Stack()
+
+
     pass    
 
   def breadth_first_for_each(self, cb):
@@ -31,12 +34,12 @@ class BinarySearchTree:
     new_tree = BinarySearchTree(value)
     if (value < self.value):
       if not self.left:
-        self.left = new_tree
+        self.left = BinarySearchTree(value)
       else:
         self.left.insert(value)
     elif value >= self.value:
       if not self.right:
-        self.right = new_tree
+        self.right = BinarySearchTree(value)
       else:
         self.right.insert(value)
 
@@ -72,8 +75,4 @@ bst.insert(8)
 bst.insert(4)
 bst.insert(7)
 bst.insert(6)
-print(bst.contains(5))
-print(bst.contains(2))
-print(bst.contains(9))
-print('calling BFS')
 bst.breadth_first_for_each(print)
