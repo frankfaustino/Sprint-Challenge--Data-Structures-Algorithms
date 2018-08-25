@@ -18,7 +18,7 @@ class BinarySearchTree:
       next_level = list()
       for item in this_level:
         cb(item)
-        if self.left: 
+        if self.left != None: 
           next_level.append(self.left)
         if self.right:
           next_level.append(self.right)

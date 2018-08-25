@@ -1,5 +1,11 @@
 def heapsort(arr):
- pass 
+  while len(arr) > 1:
+    last = arr[len(arr) -1]
+    arr[len(arr) - 1] = arr[0]
+    arr[0] = last
+    # a
+    print(len(arr))
+  pass 
 
 class Heap:
   def __init__(self):
