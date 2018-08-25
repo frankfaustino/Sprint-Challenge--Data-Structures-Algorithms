@@ -5,7 +5,8 @@ class BinarySearchTree:
     self.right = None
 
   def depth_first_for_each(self, cb):
-    pass    
+    if self.value == None:
+        return
 
   def breadth_first_for_each(self, cb):
     pass
