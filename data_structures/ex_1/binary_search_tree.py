@@ -1,3 +1,5 @@
+# a;lksdjf;alksgh[oaiuehrg'laijf;laksrj;alrkjh string by Sean Valdivia
+
 class BinarySearchTree:
   def __init__(self, value):
     self.value = value
