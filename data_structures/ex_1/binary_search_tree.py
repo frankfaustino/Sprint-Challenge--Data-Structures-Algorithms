@@ -1,14 +1,31 @@
+from stack import Stack
+from queue import Queue
+
+
 class BinarySearchTree:
   def __init__(self, value):
     self.value = value
     self.left = None
     self.right = None
 
+    
   def depth_first_for_each(self, cb):
+    container = Stack()
     pass    
 
   def breadth_first_for_each(self, cb):
-    pass
+    if self is None:
+      return
+    queue = Queue()
+    queue.enqueue(self)
+    while queue.len() > 0:
+      current = queue.dequeue()
+      cb(current.value)
+
+      if current.left:
+        queue.enqueue(current.left)
+      if current.right:
+        queue.enqueue(current.right)
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
@@ -44,3 +61,19 @@ class BinarySearchTree:
         max_value = current.value
       current = current.right
     return max_value
+
+
+
+bst = BinarySearchTree(5)
+bst.insert(9)
+bst.insert(2)
+bst.insert(3)
+bst.insert(8)
+bst.insert(4)
+bst.insert(7)
+bst.insert(6)
+print(bst.contains(5))
+print(bst.contains(2))
+print(bst.contains(9))
+print('calling BFS')
+bst.breadth_first_for_each(print)
