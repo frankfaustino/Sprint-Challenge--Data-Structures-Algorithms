@@ -13,17 +13,17 @@ class BinarySearchTree:
       self.right.depth_first_for_each(cb)
 
   def breadth_first_for_each(self, cb):
-    level = self.value
-    while level:
+    this_level = [self.value]
+    while this_level:
       next_level = list()
-      for item in level:
+      for item in this_level:
         cb(item)
-        if item.left: 
-          next_level.append(item.left)
-        if item.right:
-          next_level.append(item.right)
-      level = next_level    
-
+        if self.left: 
+          next_level.append(self.left)
+        if self.right:
+          next_level.append(self.right)
+      this_level = next_level    
+    pass
   
 
   def insert(self, value):
