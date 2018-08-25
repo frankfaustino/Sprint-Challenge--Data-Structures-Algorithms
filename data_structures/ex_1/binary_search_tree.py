@@ -5,8 +5,13 @@ class BinarySearchTree:
     self.right = None
 
   def depth_first_for_each(self, cb):
-    if self.value == None:
-        return
+    # start at the root value
+    cb(self.value)
+    # search entire left side of root
+    if self.left:
+      cb(self.left.value)
+      
+
 
   def breadth_first_for_each(self, cb):
     pass
@@ -45,3 +50,13 @@ class BinarySearchTree:
         max_value = current.value
       current = current.right
     return max_value
+
+
+# bst = BinarySearchTree(5)
+# bst.insert(2)
+# bst.insert(3)
+# bst.insert(7)
+# bst.insert(9)
+
+# # okay so figuring this out helps...
+# print(bst.right.right.right)
