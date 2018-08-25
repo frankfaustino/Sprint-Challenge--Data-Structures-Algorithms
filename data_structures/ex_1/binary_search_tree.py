@@ -1,3 +1,5 @@
+import time
+
 class BinarySearchTree:
   def __init__(self, value):
     self.value = value
@@ -5,6 +7,7 @@ class BinarySearchTree:
     self.right = None
 
   def depth_first_for_each(self, cb):
+    start = time.time()
     stack = []
     #enqueue
     stack.append(self)
@@ -13,6 +16,7 @@ class BinarySearchTree:
       curr = stack.pop()
     # check is curr is on the right
       if curr.right:
+        # add to stack
         stack.append(curr.right)
         print("right", curr.right.value)
     # check is curr is on the left 
@@ -21,9 +25,13 @@ class BinarySearchTree:
         print("left", curr.left.value)
     # call cb on curr.alue
       cb(curr.value)
+    end = time.time()
+    print("Time:", end - start)
 
 
   def breadth_first_for_each(self, cb):
+    start = time.time()
+
     queue = []
     # enqueue
     queue.append(self)
@@ -37,6 +45,8 @@ class BinarySearchTree:
         queue.append(curr.right)
       #call cb
       cb(curr.value)
+    end = time.time()
+    print("Time:", end - start)
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)

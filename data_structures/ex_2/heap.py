@@ -1,5 +1,20 @@
+import time
+
 def heapsort(arr):
- pass 
+  start = time.time()
+
+  # initialize Heap
+  heap = Heap()
+  sorted_arr = []
+  # for every item in array sort
+  for i in arr:
+    heap.insert(i)
+  # if size if > 0 || exists
+  while heap.get_size() > 0:
+    sorted_arr.insert(0, heap.delete())
+  return sorted_arr
+  end = time.time()
+  print("Time:", end - start)
 
 class Heap:
   def __init__(self):
