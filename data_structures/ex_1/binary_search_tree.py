@@ -18,7 +18,7 @@ class BinarySearchTree:
 
     if self.left:
       # we have given CB above self.value, so if we call cb(that has the value of left/ right) it can go to the left calling that value from cb
-      
+
       self.left.depth_first_for_each(cb)
 
     if self.right:
@@ -27,7 +27,33 @@ class BinarySearchTree:
       self.right.depth_first_for_each(cb)
 
   def breadth_first_for_each(self, cb):
-    pass
+    # base case
+
+    if self is None:
+      return None
+
+      # create a queue/ list for all elements in the tree
+
+    tree = [self]
+    
+    # while the queue/ list has something to go through
+
+    while len(tree) > 0:
+      visited = list()
+
+      # iterate over the tree
+
+      for i in tree:
+        cb(i.value)
+
+        # if the value is left, append it to a list of visited elements
+
+        if i.left: visited.append(i.left)
+        if i.right: visited.append(i.right)
+
+        # change existing root tree to current list of visited elements to end while loop
+
+      tree = visited
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
