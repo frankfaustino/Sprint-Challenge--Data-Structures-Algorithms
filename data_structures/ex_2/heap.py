@@ -1,4 +1,25 @@
 def heapsort(arr):
+
+  # create new heap to be sorted
+
+  hp = Heap()
+
+  # create list to append sorted heap into
+
+  sorted_heap = []
+
+  # I am guess arr is the array given to us with the heap values?
+  # if so, to sort it, we need to iterate
+
+  for i in arr:
+    # append items into new heap
+
+    hp.insert(i)
+
+    # bubble up brings the child value up from the very bottom, and sift down finds the max value so that it can be the root
+    # can't we manipulate that so that we can compare those values? 
+
+
  pass 
 
 class Heap:
