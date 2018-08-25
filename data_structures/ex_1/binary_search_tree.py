@@ -5,10 +5,21 @@ class BinarySearchTree:
     self.right = None
 
   def depth_first_for_each(self, cb):
-    pass    
+    cb(self.value)
+    if self.left:
+      self.left.depth_first_for_each(cb)
+    if self.right:
+      self.right.depth_first_for_each(cb)
 
   def breadth_first_for_each(self, cb):
-    pass
+    nodes = []
+    nodes.append(self)
+    for n in nodes:
+      if n.left:
+        nodes.append(n.left)
+      if n.right:
+        nodes.append(n.right)
+      cb(n.value)
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
