@@ -6,3 +6,4 @@ c - I think this algorithm is quadradic, O(n^2). This time complexity is common 
 d - quadradic O(n^2)
 e - exponential O(2^n)
 f - bunnyEars is linear time complexity, O(n).  
+g - search is linear, O(n)
